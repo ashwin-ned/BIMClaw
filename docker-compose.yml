@@ -1,0 +1,29 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8000:8000"
+    environment:
+      LLM_BASE_URL: http://host.docker.internal:11434/v1
+      LLM_MODEL: ${OLLAMA_MODEL:-qwen2.5-coder:32b}
+      LLM_API_KEY: ollama
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - bimclaw_data:/app/data
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  bimclaw_data:

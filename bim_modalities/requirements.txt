@@ -1,0 +1,5 @@
+numpy
+Pillow
+imageio[freeimage]
+# Optional (only needed for EXR loading if imageio[freeimage] is unavailable):
+# opencv-python-headless

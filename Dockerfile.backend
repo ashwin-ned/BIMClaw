@@ -1,0 +1,41 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+
+RUN pip install --no-cache-dir \
+    "langgraph>=0.2" \
+    "langchain-core>=0.3" \
+    "anthropic>=0.20" \
+    "openai>=1.0" \
+    "jupyter_client>=8.0" \
+    "ipykernel>=6.0" \
+    "pyzmq>=25.0" \
+    cloudpickle \
+    numpy \
+    scipy \
+    Pillow \
+    matplotlib \
+    requests \
+    rich \
+    tqdm \
+    "fastapi>=0.110" \
+    "uvicorn[standard]" \
+    python-multipart \
+    ifcopenshell
+
+COPY bim_agent/        /app/bim_agent/
+COPY bim_modalities/   /app/bim_modalities/
+COPY bim_frontend/api/ /app/bim_frontend/api/
+RUN touch /app/bim_frontend/__init__.py
+
+ENV PYTHONPATH=/app \
+    PYTHONUNBUFFERED=1 \
+    NO_COLOR=1 \
+    BIMCLAW_UPLOAD_DIR=/app/data/uploads \
+    BIMCLAW_MODALITIES_DIR=/app/data/modalities
+
+RUN mkdir -p /app/data/uploads /app/data/modalities
+
+EXPOSE 8000
+CMD ["uvicorn", "bim_frontend.api.main:app", "--host", "0.0.0.0", "--port", "8000", "--no-access-log"]

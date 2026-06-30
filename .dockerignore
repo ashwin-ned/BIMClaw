@@ -1,0 +1,11 @@
+BIM-GNI-Dataset/
+BIM-Walker/
+bim_frontend/ui/node_modules/
+bim_frontend/ui/.next/
+**/__pycache__/
+**/*.pyc
+**/.pytest_cache/
+*.egg-info/
+.git/
+environment.yml
+start.sh

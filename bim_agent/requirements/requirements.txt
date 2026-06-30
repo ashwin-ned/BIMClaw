@@ -1,0 +1,37 @@
+# BIM agent core
+langgraph>=0.2
+langchain-core>=0.3
+anthropic>=0.20          # primary LLM backend
+openai>=1.0              # fallback for OpenAI-compat / vLLM endpoints
+
+# Jupyter kernel
+jupyter_client>=8.0
+ipykernel>=6.0
+pyzmq>=25.0
+
+# IFC parsing
+# Install via conda: conda install -c conda-forge ifcopenshell
+# or: pip install ifcopenshell (may be outdated)
+
+# Serialization
+cloudpickle>=2.0
+
+# Vision
+numpy
+scipy
+Pillow
+matplotlib
+opencv-python-headless
+
+# EXR depth loading (for BIM-Walker outputs)
+imageio[freeimage]
+
+# Utilities
+requests
+rich
+tqdm
+
+# API server (for bim_frontend)
+fastapi>=0.110
+uvicorn[standard]
+python-multipart        # for file uploads

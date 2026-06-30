@@ -1,0 +1,57 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── Jupyter ───────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Node / Next.js ────────────────────────────────────────────────────────────
+node_modules/
+.next/
+out/
+bim_frontend/ui/.next/
+bim_frontend/ui/node_modules/
+bim_frontend/ui/out/
+
+# ── Environment & secrets ─────────────────────────────────────────────────────
+.env
+# keep .env.example — it's documentation, not secrets
+
+# ── Docker / runtime data ─────────────────────────────────────────────────────
+.logs/
+data/
+
+# ── Session logs & test artifacts ─────────────────────────────────────────────
+test_logs/
+
+# ── macOS / editor ────────────────────────────────────────────────────────────
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── BIM-GNI-Dataset: ignore all IFC files except the first two val samples ────
+# Train split — all ignored
+BIM-GNI-Dataset/train/
+
+# Val split — keep model_0 and model_1 as samples, ignore the rest
+BIM-GNI-Dataset/val/model_2.ifc
+BIM-GNI-Dataset/val/model_3.ifc
+BIM-GNI-Dataset/val/model_4.ifc
+BIM-GNI-Dataset/val/model_5.ifc
+BIM-GNI-Dataset/val/model_6.ifc
+BIM-GNI-Dataset/val/model_7.ifc
+BIM-GNI-Dataset/val/model_8.ifc
+BIM-GNI-Dataset/val/model_9.ifc

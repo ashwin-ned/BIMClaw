@@ -1,0 +1,29 @@
+name: bimclaw
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - conda-forge::ifcopenshell  # IFC parsing — best installed via conda-forge
+  - pip:
+    - langgraph>=0.2
+    - langchain-core>=0.3
+    - anthropic>=0.20
+    - openai>=1.0
+    - jupyter_client>=8.0
+    - ipykernel>=6.0
+    - pyzmq>=25.0
+    - cloudpickle>=2.0
+    - numpy
+    - scipy
+    - Pillow
+    - matplotlib
+    - opencv-python-headless
+    - imageio[freeimage]
+    - requests
+    - rich
+    - tqdm
+    - fastapi>=0.110
+    - uvicorn[standard]
+    - python-multipart
